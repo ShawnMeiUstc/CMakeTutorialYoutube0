@@ -4,7 +4,7 @@ project(HelloCmake)
 
 add_executable(hello main.cpp)
 
-add_subdirectory(include)
+add_subdirectory(LibAdder)
 
 # get glfw from github
 find_package(Git QUIET)
@@ -26,7 +26,7 @@ endif()
 add_subdirectory(thirdparty/GLFW)
 
 target_include_directories(hello 
-    PRIVATE include
+    PRIVATE LibAdder
     PUBLIC thirdparty/GLFW/include
 )
 
