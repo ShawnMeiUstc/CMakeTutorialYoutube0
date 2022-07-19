@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(HelloCmake)
+project(HelloCmake VERSION 1.0)
+
+configure_file(HelloCmakeConfig.h.in ./config/HelloCmakeConfig.h)
 
 add_executable(hello main.cpp)
 
@@ -25,7 +27,8 @@ endif()
 
 add_subdirectory(thirdparty/GLFW)
 
-target_include_directories(hello 
+target_include_directories(hello
+    PRIVATE ${PROJECT_BINARY_DIR}/config
     PRIVATE LibAdder
     PUBLIC thirdparty/GLFW/include
 )

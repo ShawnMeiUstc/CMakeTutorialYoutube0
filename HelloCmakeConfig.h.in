@@ -1,0 +1,2 @@
+#define HelloCmake_VERSION_MAJOR @HelloCmake_VERSION_MAJOR@
+#define HelloCmake_VERSION_MINOR @HelloCmake_VERSION_MINOR@

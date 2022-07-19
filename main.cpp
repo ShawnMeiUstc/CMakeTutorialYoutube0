@@ -1,11 +1,14 @@
 #include <iostream>
-#include "adder.h"
+#include <adder.h>
 #include <GLFW/glfw3.h>
 
-int main()
+#include "HelloCmakeConfig.h"
+
+int main(int argc, char **argv)
 {
     std::cout << "Hello Cmake!" << std::endl;
     std::cout << add(1.0, 3.5) << std::endl;
+    std::cout << "The " << argv[0] << " Version" << HelloCmake_VERSION_MAJOR << "." << HelloCmake_VERSION_MINOR << std::endl;
 
     GLFWwindow* window;
     if( !glfwInit() )
