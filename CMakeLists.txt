@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.15)
-
 project(HelloCmake VERSION 1.1)
 
 add_executable(hello main.cpp)
@@ -31,12 +30,14 @@ option(USE_ADDER "a library for adding two float number" ON)
 option(USE_GLFW "USE GLFW" ON)
 
 if(USE_ADDER)
+    add_subdirectory(./LibAdder)
     list(APPEND EXTRA_INCLUDE_DIRS LibAdder)
     list(APPEND EXTRA_LIB_LINK_DIRS ${PROJECT_BINARY_DIR}/LibAdder)
     list(APPEND EXTRA_LIBS adder)
 endif()
 
 if(USE_GLFW)
+    add_subdirectory(./ThirdParty/GLFW)
     list(APPEND EXTRA_INCLUDE_DIRS ThirdParty/GLFW/include)
     list(APPEND EXTRA_LIB_LINK_DIRS ${PROJECT_BINARY_DIR}/ThirdParty/GLFW/src)
     list(APPEND EXTRA_LIBS glfw3)
@@ -54,3 +55,5 @@ target_link_directories(hello
     )
 
 target_link_libraries(hello PUBLIC ${EXTRA_LIBS})
+
+install(TARGETS hello DESTINATION bin CONFIGURATIONS Debug)
